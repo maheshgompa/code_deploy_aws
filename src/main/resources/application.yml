@@ -1,0 +1,63 @@
+#server port
+server:
+  port: 9090
+
+jwt:
+  secret: f82e3ba1a4d359ef0a37815c379d216999473e0b7f425f86c65e78c2a1380dca
+
+#smtp configuration and database configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/CareerFunds
+#    url: jdbc:postgresql://database-1.cwijv6yv2kbu.eu-north-1.rds.amazonaws.com:5432/CareerFundAws
+    username: postgres
+#    password: Saikumar
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+
+  #  gmail smtp configurations
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username: devisaikotari@gmail.com
+    password: toqqybbrwtpzfovq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+#eureka configuration
+eureka:
+  instance:
+    hostname: postgresdb.cu0ghcs3xhjo.us-east-1.rds.amazonaws.com
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://postgresdb.cu0ghcs3xhjo.us-east-1.rds.amazonaws.com:5432/eureka/
+
+
+
+#Swagger
+springdoc:
+  swagger-ui:
+    path: /api/swagger-ui.html
+
+
+#spring security
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+
